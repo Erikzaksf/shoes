@@ -2,7 +2,7 @@
 <hr>
 <% if @stores.any? %>
   <ul>
-    <% @stores.each do |store| %>
+    <% @stores.each() do |store| %>
       <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
       <br>
     <% end %>

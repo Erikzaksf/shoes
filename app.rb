@@ -16,11 +16,6 @@ end
 
 get '/stores' do
   @stores = Store.all
-  @stores.each do |store|
-    if store.shoes == []
-      store.destroy
-    end
-  end
   erb :stores
 end
 
@@ -43,4 +38,23 @@ get '/shoes/:id' do
   @price = @shoe.price
 
   erb :shoe
+end
+
+get '/add_store' do
+  erb :add_store
+end
+
+
+post '/add_store' do
+  name = params.fetch 'name'
+  store = Store.create({:name => name})
+
+  redirect '/stores'
+end
+
+get '/stores/:id' do
+  @store = Store.find(params.fetch('id').to_i)
+  @name = @store.name
+  
+  erb :store
 end

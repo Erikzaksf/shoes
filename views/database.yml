@@ -1,0 +1,14 @@
+development:
+  username: funkinfresh
+  password: <%= ENV['coldball77'] %>
+  adapter: postgresql
+  database: categories_recipes
+test:
+  username: funkinfresh
+  password: <%= ENV['coldball77'] %>
+  adapter: postgresql
+  database:  categories_recipes_test
+
+# production:
+#   username: funkinfresh
+#   password: coldball77
