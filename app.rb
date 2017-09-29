@@ -36,6 +36,7 @@ end
 get '/shoes/:id' do
   @shoe = Shoe.find(params.fetch('id').to_i)
   @price = @shoe.price
+  @store_id = @shoe.store_ids
 
   erb :shoe
 end
@@ -43,6 +44,8 @@ end
 get '/add_store' do
   erb :add_store
 end
+
+
 
 
 post '/add_store' do
@@ -55,6 +58,18 @@ end
 get '/stores/:id' do
   @store = Store.find(params.fetch('id').to_i)
   @name = @store.name
-  
+
   erb :store
+end
+
+
+
+
+
+patch '/shoes/:id' do
+  name = Store.find(params.fetch('name'))
+  @store_ids = @shoe.store_ids
+  @shoe = Shoe.find(params.fetch('id').to_i)
+  Shoe.new({:store_id => store_id})
+  redirect '/shoes'
 end

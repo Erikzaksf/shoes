@@ -3,6 +3,14 @@
 <h2>Price:   $<%= @shoe.price %>0 </h2>
 
 
+
+<h3>Add a store to a shoe</h3>
+<form action='/shoes/<%= @shoe.id %>' method="patch">
+  <input type="text" name="name" id="name">
+  <label for="name">Store Name</label>
+  <br>
+  <button type="submit">Add Store</button>
+
 <br>
 <br>
 <br>
