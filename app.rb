@@ -23,3 +23,24 @@ get '/stores' do
   end
   erb :stores
 end
+
+get '/add_shoe' do
+  erb :add_shoe
+end
+
+
+post '/add_shoe' do
+  name = params.fetch 'name'
+  price = params.fetch 'price'
+
+  shoe = Shoe.create({:name => name, :price => price})
+
+  redirect '/shoes'
+end
+
+get '/shoes/:id' do
+  @shoe = Shoe.find(params.fetch('id').to_i)
+  @price = @shoe.price
+
+  erb :shoe
+end
