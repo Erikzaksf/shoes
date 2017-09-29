@@ -1,0 +1,12 @@
+<h1>Shoes</h1>
+<hr>
+<% if @shoes.any? %>
+  <ul>
+    <% @shoes.each() do |shoe| %>
+      <li><a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no shoes</p>
+<% end %>
