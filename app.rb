@@ -17,7 +17,7 @@ end
 get '/stores' do
   @stores = Store.all
   @stores.each do |store|
-    if store.recipes == []
+    if store.shoes == []
       store.destroy
     end
   end
