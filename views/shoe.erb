@@ -1,7 +1,7 @@
 <h1>Shoe: <%= @shoe.name %></h1>
 
 <h2>Price:   $<%= @shoe.price %>0 </h2>
-
+<h2>Stores: </h2>
 <% if @shoe.stores.any? %>
   <ul>
     <% @shoe.stores.each() do |store| %>
