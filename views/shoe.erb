@@ -2,7 +2,16 @@
 
 <h2>Price:   $<%= @shoe.price %>0 </h2>
 
-
+<% if @shoe.stores.any? %>
+  <ul>
+    <% @shoe.stores.each() do |store| %>
+      <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no stores</p>
+<% end %>
 
 <h3>Add a store to a shoe</h3>
 <form action='/shoes/<%= @shoe.id %>' method="post">

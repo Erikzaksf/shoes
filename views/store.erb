@@ -10,6 +10,13 @@
 <% else %>
   <p>There are no shoes</p>
 <% end %>
+<h3>Add a shoe to a store</h3>
+<form action='/stores/<%= @store.id %>' method="post">
+  <input type="text" name="name" id="name">
+  <label for="name">Shoe Name</label>
+  <br>
+  <button type="submit">Add Shoe</button>
+
 
 <br>
 <br>

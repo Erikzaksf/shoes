@@ -64,6 +64,17 @@ end
 
 
 
+post '/stores/:id' do
+  name = params.fetch 'name'
+  shoe = Shoe.find_or_initialize_by name: name
+  shoe.save
+  @store = Store.find(params.fetch('id').to_i)
+
+  @store.shoes.push(shoe)
+  redirect '/stores'
+end
+
+
 
 
 post '/shoes/:id' do
