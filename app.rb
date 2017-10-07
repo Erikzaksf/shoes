@@ -66,10 +66,12 @@ end
 
 
 
-patch '/shoes/:id' do
-  name = Store.find(params.fetch('name'))
-  @store_ids = @shoe.store_ids
+post '/shoes/:id' do
+  name = params.fetch 'name'
+  store = Store.find_or_initialize_by name: name
+  store.save
   @shoe = Shoe.find(params.fetch('id').to_i)
-  Shoe.new({:store_id => store_id})
+
+  @shoe.stores.push(store)
   redirect '/shoes'
 end

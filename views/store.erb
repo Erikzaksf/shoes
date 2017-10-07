@@ -1,6 +1,15 @@
 <h1>Store: <%= @store.name %></h1>
 
-
+<% if @store.shoes.any? %>
+  <ul>
+    <% @store.shoes.each() do |shoe| %>
+      <li><a href="/shoes/<%= shoe.id %>"><%= shoe.name %></a></li>
+      <br>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no shoes</p>
+<% end %>
 
 <br>
 <br>
